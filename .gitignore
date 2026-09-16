@@ -1,0 +1,20 @@
+# Virtual Environment
+venv/
+ENV/
+env/
+
+# Python Cache & Artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Dataset & Trained Models
+data/*.csv
+models/*.joblib
+models/*.json
+
+# IDE Settings
+.vscode/
+.idea/
+.DS_Store
