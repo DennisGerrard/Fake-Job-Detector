@@ -1,0 +1,53 @@
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 640px;
+  margin: 40px auto;
+  padding: 0 20px;
+  color: #222;
+}
+
+label {
+  display: block;
+  margin-bottom: 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+input[type="text"], textarea {
+  width: 100%;
+  font: inherit;
+  padding: 8px;
+  margin-top: 4px;
+  box-sizing: border-box;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+fieldset label {
+  display: inline-block;
+  margin-right: 16px;
+  font-weight: normal;
+}
+
+.required { color: #b4322c; font-weight: normal; }
+
+button {
+  padding: 10px 20px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.error { color: #b4322c; }
+
+#result {
+  margin-top: 24px;
+  padding: 16px;
+  border: 1px solid #ccc;
+}
+
+#result.fake { border-color: #b4322c; }
+#result.genuine { border-color: #14705c; }

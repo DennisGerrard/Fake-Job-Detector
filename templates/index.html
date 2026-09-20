@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fake Job Post Detector</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<h1>Fake Job Post Detector</h1>
+<p>Paste a job posting below to check whether it looks genuine or fraudulent.</p>
+
+<form id="posting-form">
+  <label>Title
+    <input type="text" name="title" placeholder="Logistics Coordinator">
+  </label>
+
+  <label>Company profile
+    <textarea name="company_profile" rows="3"></textarea>
+  </label>
+
+  <label>Description <span class="required">required</span>
+    <textarea name="description" rows="6"></textarea>
+  </label>
+
+  <label>Requirements
+    <textarea name="requirements" rows="3"></textarea>
+  </label>
+
+  <label>Benefits
+    <textarea name="benefits" rows="2"></textarea>
+  </label>
+
+  <fieldset>
+    <label><input type="checkbox" name="telecommuting"> Remote</label>
+    <label><input type="checkbox" name="has_company_logo"> Has company logo</label>
+    <label><input type="checkbox" name="has_questions"> Has screening questions</label>
+  </fieldset>
+
+  <button type="submit">Check this posting</button>
+  <p id="form-error" class="error" hidden></p>
+</form>
+
+<section id="result" hidden>
+  <h2 id="verdict"></h2>
+  <p>Score: <span id="score"></span></p>
+  <ul>
+    <li>Random Forest: <span id="rf-score"></span></li>
+    <li>K-Neighbors: <span id="knn-score"></span></li>
+  </ul>
+</section>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
