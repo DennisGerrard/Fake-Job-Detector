@@ -8,7 +8,12 @@
 <body>
 
 <h1>Fake Job Post Detector</h1>
-<p>Paste a job posting below to check whether it looks genuine or fraudulent.</p>
+<p>Paste a job posting below, or upload a screenshot to autofill the form.</p>
+
+<label>Upload a screenshot of the job ad
+  <input type="file" id="image-upload" accept="image/*">
+</label>
+<p id="ocr-status" hidden></p>
 
 <form id="posting-form">
   <label>Title
@@ -24,32 +29,4 @@
   </label>
 
   <label>Requirements
-    <textarea name="requirements" rows="3"></textarea>
-  </label>
-
-  <label>Benefits
-    <textarea name="benefits" rows="2"></textarea>
-  </label>
-
-  <fieldset>
-    <label><input type="checkbox" name="telecommuting"> Remote</label>
-    <label><input type="checkbox" name="has_company_logo"> Has company logo</label>
-    <label><input type="checkbox" name="has_questions"> Has screening questions</label>
-  </fieldset>
-
-  <button type="submit">Check this posting</button>
-  <p id="form-error" class="error" hidden></p>
-</form>
-
-<section id="result" hidden>
-  <h2 id="verdict"></h2>
-  <p>Score: <span id="score"></span></p>
-  <ul>
-    <li>Random Forest: <span id="rf-score"></span></li>
-    <li>K-Neighbors: <span id="knn-score"></span></li>
-  </ul>
-</section>
-
-<script src="{{ url_for('static', filename='js/main.js') }}"></script>
-</body>
-</html>
+    <textarea

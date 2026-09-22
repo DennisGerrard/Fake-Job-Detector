@@ -1,5 +1,5 @@
 """Flask backend: loads both models, exposes /predict."""
-
+from ocr import extract_text, guess_fields
 import json
 from pathlib import Path
 
@@ -76,3 +76,19 @@ def predict():
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
+
+@app.route("/extract-text", methods=["POST"])
+def extract_text_route():
+    if "image" not in request.files:
+        return jsonify({"error": "no image uploaded"}), 400
+
+    image = request.files["image"]
+    try:
+        raw_text = extract_text(image)
+    except Exception:
+        return jsonify({"error": "could not read that image"}), 400
+
+    if not raw_text:
+        return jsonify({"error": "no text found in image"}), 422
+
+    return jsonify(guess_fields(raw_text))
